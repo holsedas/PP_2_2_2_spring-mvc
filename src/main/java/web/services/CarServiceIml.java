@@ -22,8 +22,14 @@ public class CarServiceIml implements CarService {
         cars.add(new Car(++CARS_COUNT, "Mitsubishi Outlander IV", 2021));
     }
 
-    public List<Car> cars() {
-        return cars;
+    public List<Car> cars(int count) {
+        if (count > 0 && count < 5) {
+            return cars.subList(0, count);
+        } else if (count >= 5) {
+            return cars;
+        } else {
+            return null;
+        }
     }
 }
 
